@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  background: #303030;
+  display: grid;
+  place-items: center;
+}
+
+.btn {
+  position: relative;
+  all: unset;
+  width: 200px;
+  height: 60px;
+  background: #33a6e8;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn.clicked {
+  animation: scale 0.3s ease-in-out 0.9s both, shrink 4s ease-in-out forwards;
+}
+
+@keyframes shrink {
+  15% {
+   width: 60px; 
+  }
+  85% {
+    width: 60px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.1);
+  }
+  66% {
+    transform: scale(0.9);
+  }
+}
+
+.btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.btn.clicked span {
+  animation: spanShrink 4s ease-in-out forwards;
+}
+
+@keyframes spanShrink {
+  15% {
+   opacity: 0;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.btn .checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  stroke-width: 3;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  width: 56px;
+  height: 56px;
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+}
+
+.btn.clicked .checkmark {
+  animation: stroke 4s ease-in-out 0.6s forwards;
+}
+
+@keyframes stroke {
+  20% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  70% {
+    stroke-dashoffset: 48;
+  }
+}
